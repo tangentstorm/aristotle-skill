@@ -1,0 +1,10 @@
+{
+  "name": "aristotle-lean",
+  "version": "0.1.0",
+  "description": "Delegate Lean proof work to the Aristotle CLI — submit/formalize jobs, poll, list, and cancel them.",
+  "author": {
+    "name": "Michal",
+    "email": "michal.wallace@gmail.com"
+  },
+  "keywords": ["lean", "aristotle", "formalization", "proofs", "theorem-proving"]
+}

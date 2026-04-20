@@ -1,41 +1,70 @@
 # Aristotle Lean Skill
 
-This repository packages a reusable workflow for delegating Lean proof work to the Aristotle CLI.
+A reusable workflow for delegating Lean proof work to the [Aristotle](https://aristotle.harmonic.fun/) CLI.
 
-It is primarily written in Codex skill format, but the contents are plain text and can be used by other agents or humans as an instruction pack.
+The skill is agent-agnostic: the instructions in `SKILL.md` are plain text that Claude, Codex, or a human can follow directly. The repo is also laid out as a Cowork plugin so it can be installed with one click into Claude Cowork.
 
-Aristotle site:
+## Layout
 
-- https://aristotle.harmonic.fun/
+```
+aristotle-skill/
+├── .claude-plugin/
+│   └── plugin.json               # Cowork plugin manifest
+├── skills/
+│   └── aristotle-lean/           # The skill itself
+│       ├── SKILL.md              # Workflow and operating instructions
+│       ├── agents/openai.yaml    # Codex UI metadata
+│       └── references/
+│           └── submitting-projects.md
+├── build-plugin.ps1              # Windows build script (produces .plugin)
+├── build-plugin.sh               # POSIX build script
+├── LICENSE
+└── README.md
+```
 
-## Files
+## Install
 
-- `SKILL.md`: the main workflow and operating instructions
-- `agents/openai.yaml`: Codex UI metadata
-- `references/submitting-projects.md`: CLI usage patterns, project requirements, and prompt examples
+### Claude Cowork (plugin)
 
-## How To Use
+Build the plugin, then drop the resulting `.plugin` file into Cowork's plugin prompt.
 
-For Codex:
+Windows:
 
-- install or copy this folder as a skill
-- invoke it as `$aristotle-lean`
+```powershell
+.\build-plugin.ps1
+```
 
-For Claude or other agents:
+macOS/Linux:
 
-- read `SKILL.md`
-- read `references/submitting-projects.md` when you need concrete CLI patterns or prompt examples
-- follow the workflow directly as ordinary instructions
+```bash
+./build-plugin.sh
+```
+
+The script produces `aristotle-lean.plugin` in the repo root.
+
+### Claude Code CLI
+
+Copy the skill folder into your personal skills directory:
+
+```powershell
+Copy-Item -Recurse skills\aristotle-lean "$HOME\.claude\skills\aristotle-lean"
+```
+
+```bash
+cp -r skills/aristotle-lean ~/.claude/skills/aristotle-lean
+```
+
+### Codex
+
+Install or symlink `skills/aristotle-lean/` (the subdirectory — not the repo root) as a Codex skill, then invoke it as `$aristotle-lean`. The `agents/openai.yaml` alongside `SKILL.md` supplies Codex UI metadata.
 
 ## Requirements
 
-This repo does not include Aristotle credentials.
+This repo does not bundle the CLI or credentials. To use the skill at runtime the environment needs:
 
-To use it, the environment should provide:
-
-- the `aristotle` CLI
-- an `ARISTOTLE_API_KEY` environment variable, or equivalent authenticated CLI configuration
-- a Lean project directory when using project-based submission
+- the `aristotle` CLI on `PATH`
+- an `ARISTOTLE_API_KEY` environment variable (or equivalent authenticated CLI configuration)
+- a Lean project directory when using project-based submission (`lakefile.toml` or `lakefile.lean`, `lean-toolchain`, and `.lean` sources with valid imports)
 
 ## Notes
 
