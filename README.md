@@ -4,6 +4,10 @@ This repository packages a reusable workflow for delegating Lean proof work to t
 
 It is primarily written in Codex skill format, but the contents are plain text and can be used by other agents or humans as an instruction pack.
 
+Aristotle site:
+
+- https://aristotle.harmonic.fun/
+
 ## Files
 
 - `SKILL.md`: the main workflow and operating instructions
