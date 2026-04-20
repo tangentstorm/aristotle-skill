@@ -1,6 +1,6 @@
 ---
 name: aristotle-lean
-description: Submit, monitor, and retrieve Aristotle Lean formalization jobs from a local Lean project. Use when Codex needs to delegate Lean proof work to the Aristotle CLI, especially for parallel proof tasks from a `lean/` directory, file-level formalization requests, result polling, job listing, or cancellation.
+description: Submit, monitor, and retrieve Aristotle Lean formalization jobs via the `aristotle` CLI. Use when delegating Lean proof work to Aristotle — filling sorries in a Lean project, formalizing a natural-language math document (.tex/.md/.txt), running parallel file-scoped proof tasks, polling or listing in-flight jobs, downloading results, or cancelling jobs. Triggers include mentions of Aristotle, `aristotle submit`, `aristotle formalize`, `aristotle result`, `aristotle list`, `aristotle cancel`, Lean formalization jobs, or delegating proofs/sorries to a remote Lean worker.
 ---
 
 # Aristotle Lean
