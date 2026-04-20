@@ -1,0 +1,4 @@
+interface:
+  display_name: "Aristotle Lean"
+  short_description: "Run Aristotle Lean formalization jobs"
+  default_prompt: "Use $aristotle-lean to submit, monitor, and retrieve Aristotle Lean jobs from the lean/ directory."
