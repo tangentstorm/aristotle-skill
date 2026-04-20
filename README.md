@@ -56,7 +56,14 @@ cp -r skills/aristotle-lean ~/.claude/skills/aristotle-lean
 
 ### Codex
 
-Install or symlink `skills/aristotle-lean/` (the subdirectory — not the repo root) as a Codex skill, then invoke it as `$aristotle-lean`. The `agents/openai.yaml` alongside `SKILL.md` supplies Codex UI metadata.
+From the repo root, paste these two lines into PowerShell. The first removes any existing install (including a plain copy from an earlier install), and the second creates a directory junction so Codex picks up repo edits live. Junctions work without admin rights.
+
+```powershell
+Remove-Item -Recurse -Force "$HOME\.codex\skills\aristotle-lean" -ErrorAction SilentlyContinue
+New-Item -ItemType Junction -Path "$HOME\.codex\skills\aristotle-lean" -Target "$PWD\skills\aristotle-lean" | Out-Null
+```
+
+Invoke the skill in Codex as `$aristotle-lean`. The `agents/openai.yaml` alongside `SKILL.md` supplies Codex UI metadata.
 
 ## Requirements
 
