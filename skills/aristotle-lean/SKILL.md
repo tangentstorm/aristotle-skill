@@ -15,6 +15,10 @@ Read `references/submitting-projects.md` when you need:
 - document formalization guidance
 - comment-based proof sketch guidance
 
+## MCP tools (if available)
+
+When this skill is installed as a Claude Code plugin, an `aristotle` MCP server is registered and the CLI is also available as tools: `submit`, `list`, `result`, `cancel`, `diff_result`. Prefer the MCP tools when they appear — they handle tarball extraction and diffing for you. Fall back to the CLI when running outside the plugin (Codex, plain shell, etc.).
+
 ## Quick Start
 
 Run all Aristotle commands from the Lean project root when possible. In this repo that usually means `C:\ver\turyn\lean`.

@@ -1,0 +1,14 @@
+{
+  "name": "aristotle-skill",
+  "owner": {
+    "name": "tangentstorm",
+    "url": "https://github.com/tangentstorm"
+  },
+  "plugins": [
+    {
+      "name": "aristotle-lean",
+      "source": ".",
+      "description": "Delegate Lean proof work to the Aristotle CLI — skill + bundled MCP server for submit/list/result/cancel/diff."
+    }
+  ]
+}

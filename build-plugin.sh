@@ -11,6 +11,7 @@ OUT="${NAME}.plugin"
 rm -f "$OUT"
 zip -r "$OUT" \
   .claude-plugin \
+  mcp \
   skills \
   README.md \
   LICENSE \

@@ -6,5 +6,11 @@
     "name": "Michal",
     "email": "michal.wallace@gmail.com"
   },
-  "keywords": ["lean", "aristotle", "formalization", "proofs", "theorem-proving"]
+  "keywords": ["lean", "aristotle", "formalization", "proofs", "theorem-proving"],
+  "mcpServers": {
+    "aristotle": {
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/aristotle_mcp.py"]
+    }
+  }
 }
